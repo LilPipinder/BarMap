@@ -1,5 +1,5 @@
-<mat-toolbar class="toolbar">
-  <a mat-icon-button routerLink="/">
+<mat-toolbar>
+  <a mat-icon-button routerLink="/" aria-label="Назад к списку">
     <mat-icon>arrow_back</mat-icon>
   </a>
   <span>{{ isEdit() ? 'Редактирование' : 'Новый коктейль' }}</span>
@@ -9,10 +9,11 @@
   <mat-card>
     <mat-card-content>
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
         <mat-form-field appearance="outline" class="full">
           <mat-label>Название</mat-label>
           <input matInput formControlName="name" placeholder="Например, Негрони" />
-          @if (form.get('name')?.hasError('required') && form.get('name')?.touched) {
+          @if (isInvalid('name')) {
             <mat-error>Обязательное поле</mat-error>
           }
         </mat-form-field>
@@ -20,31 +21,34 @@
         <mat-form-field appearance="outline" class="full">
           <mat-label>Описание</mat-label>
           <textarea matInput formControlName="description" rows="3" placeholder="Краткое описание коктейля"></textarea>
-          @if (form.get('description')?.hasError('required') && form.get('description')?.touched) {
+          @if (isInvalid('description')) {
             <mat-error>Обязательное поле</mat-error>
           }
         </mat-form-field>
 
         <h3>Шаги приготовления</h3>
+
         <div formArrayName="steps">
           @for (step of steps.controls; track $index; let i = $index) {
             <div class="step-block" [formGroupName]="i">
+
               <div class="step-header">
                 <span>Шаг {{ i + 1 }}</span>
                 @if (steps.length > 1) {
-                  <button type="button" mat-icon-button color="warn" (click)="removeStep(i)">
+                  <button type="button" mat-icon-button color="warn" (click)="removeStep(i)" aria-label="Удалить шаг">
                     <mat-icon>delete</mat-icon>
                   </button>
                 }
               </div>
+
               <mat-form-field appearance="outline" class="full">
                 <mat-label>Описание шага</mat-label>
                 <textarea matInput formControlName="text" rows="2"></textarea>
               </mat-form-field>
 
               <div class="image-row">
-                @if (step.get('image')?.value) {
-                  <img [src]="step.get('image')?.value" class="preview" alt="step" />
+                @if (step.get('image')?.value; as img) {
+                  <img [src]="img" class="preview" [alt]="'Фото шага ' + (i + 1)" />
                   <button type="button" mat-stroked-button (click)="clearStepImage(i)">Убрать</button>
                 } @else {
                   <label class="file-btn">
@@ -54,18 +58,21 @@
                   </label>
                 }
               </div>
+
             </div>
           }
         </div>
+
         <button type="button" mat-stroked-button (click)="addStep()" class="add-step">
           <mat-icon>add</mat-icon>
           Добавить шаг
         </button>
 
         <h3>Фото готового коктейля</h3>
+
         <div class="image-row final">
-          @if (form.get('finalImage')?.value) {
-            <img [src]="form.get('finalImage')?.value" class="preview large" alt="final" />
+          @if (form.get('finalImage')?.value; as img) {
+            <img [src]="img" class="preview large" alt="Фото готового коктейля" />
             <button type="button" mat-stroked-button (click)="clearFinalImage()">Убрать</button>
           } @else {
             <label class="file-btn">
@@ -82,6 +89,7 @@
             {{ isEdit() ? 'Сохранить' : 'Создать' }}
           </button>
         </div>
+
       </form>
     </mat-card-content>
   </mat-card>

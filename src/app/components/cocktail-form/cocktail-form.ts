@@ -1,32 +1,20 @@
-import { Component, inject, OnInit, signal, ChangeDetectorRef } from '@angular/core';
-import { FormBuilder, FormArray, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatCardModule } from '@angular/material/card';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { DatePipe } from '@angular/common';
 import { CocktailService } from '../../services/cocktail.service';
-import { Cocktail, CocktailStep } from '../../models/cocktail.model';
+import { Cocktail } from '../../models/cocktail.model';
+import { MaterialModule } from '../../shared/material.module';
 
 @Component({
-  selector: 'app-cocktail-form',
+  selector: 'app-cocktail-detail',
   standalone: true,
   imports: [
-    ReactiveFormsModule,
     RouterLink,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatIconModule,
-    MatCardModule,
-    MatToolbarModule,
-    MatSnackBarModule
+    DatePipe,
+    MaterialModule,
   ],
-  templateUrl: './cocktail-form.html',
-  styleUrl: './cocktail-form.scss'
+  templateUrl: './cocktail-detail.html',
+  styleUrl: './cocktail-detail.scss',
 })
 export class CocktailForm implements OnInit {
   private readonly cdr = inject(ChangeDetectorRef);

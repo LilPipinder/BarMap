@@ -1,29 +1,20 @@
-import { Component, inject } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, inject, OnInit, signal } from '@angular/core';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { DatePipe } from '@angular/common';
-import { MatTableModule } from '@angular/material/table';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatCardModule } from '@angular/material/card';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatTooltipModule } from '@angular/material/tooltip';
 import { CocktailService } from '../../services/cocktail.service';
+import { Cocktail } from '../../models/cocktail.model';
+import { MaterialModule } from '../../shared/material.module';
 
 @Component({
-  selector: 'app-cocktail-list',
+  selector: 'app-cocktail-detail',
   standalone: true,
   imports: [
     RouterLink,
     DatePipe,
-    MatTableModule,
-    MatButtonModule,
-    MatIconModule,
-    MatCardModule,
-    MatToolbarModule,
-    MatTooltipModule
+    MaterialModule,
   ],
-  templateUrl: './cocktail-list.html',
-  styleUrl: './cocktail-list.scss'
+  templateUrl: './cocktail-detail.html',
+  styleUrl: './cocktail-detail.scss',
 })
 export class CocktailList {
   private readonly service = inject(CocktailService);
