@@ -1,16 +1,14 @@
 @use '@angular/material' as mat;
 
-html {
-  @include mat.theme((
-    color: (
-      theme-type: light,
-      primary: mat.$violet-palette,
-      tertiary: mat.$rose-palette,
-    ),
-    typography: Roboto,
-    density: 0,
-  ));
-}
+@include mat.theme((
+  color: (
+    theme-type: dark,
+    primary: mat.$violet-palette,
+    tertiary: mat.$rose-palette,
+  ),
+  typography: Roboto,
+  density: 0,
+));
 
 :root {
   --bar-bg: #0f0c1a;
