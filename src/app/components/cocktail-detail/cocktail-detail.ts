@@ -1,13 +1,9 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { DatePipe } from '@angular/common';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatCardModule } from '@angular/material/card';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatListModule } from '@angular/material/list';
 import { CocktailService } from '../../services/cocktail.service';
 import { Cocktail } from '../../models/cocktail.model';
+import { MaterialModule } from '../../shared/material.module';
 
 @Component({
   selector: 'app-cocktail-detail',
@@ -15,14 +11,10 @@ import { Cocktail } from '../../models/cocktail.model';
   imports: [
     RouterLink,
     DatePipe,
-    MatButtonModule,
-    MatIconModule,
-    MatCardModule,
-    MatToolbarModule,
-    MatListModule
+    MaterialModule,
   ],
   templateUrl: './cocktail-detail.html',
-  styleUrl: './cocktail-detail.scss'
+  styleUrl: './cocktail-detail.scss',
 })
 export class CocktailDetail implements OnInit {
   private readonly service = inject(CocktailService);

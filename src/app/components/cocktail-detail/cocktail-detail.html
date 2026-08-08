@@ -1,23 +1,32 @@
 @if (cocktail(); as c) {
-  <mat-toolbar class="toolbar">
-    <a mat-icon-button routerLink="/">
+  <mat-toolbar>
+    <a mat-icon-button routerLink="/" aria-label="Назад к списку">
       <mat-icon>arrow_back</mat-icon>
     </a>
+
     <span>{{ c.name }}</span>
     <span class="spacer"></span>
-    <a mat-icon-button [routerLink]="['/edit', c.id]">
+
+    <a mat-icon-button [routerLink]="['/edit', c.id]" aria-label="Редактировать">
       <mat-icon>edit</mat-icon>
     </a>
-    <button mat-icon-button (click)="delete()">
+
+    <button mat-icon-button (click)="delete()" aria-label="Удалить">
       <mat-icon>delete</mat-icon>
     </button>
   </mat-toolbar>
 
   <div class="container">
     <mat-card>
+
       @if (c.finalImage) {
-        <img [src]="c.finalImage" alt="{{ c.name }}" class="hero" />
+        <img
+          class="hero"
+          [src]="c.finalImage"
+          [alt]="c.name"
+        />
       }
+
       <mat-card-header>
         <mat-card-title>{{ c.name }}</mat-card-title>
         <mat-card-subtitle>
@@ -27,25 +36,37 @@
           }
         </mat-card-subtitle>
       </mat-card-header>
+
       <mat-card-content>
         <p class="desc">{{ c.description }}</p>
 
         <h3>Приготовление</h3>
+
         <ol class="steps">
           @for (step of c.steps; track $index; let i = $index) {
             <li>
               <div class="step-text">{{ step.text }}</div>
+
               @if (step.image) {
-                <img [src]="step.image" alt="Шаг {{ i + 1 }}" class="step-img" />
+                <img
+                  class="step-img"
+                  [src]="step.image"
+                  [alt]="'Шаг ' + (i + 1)"
+                  loading="lazy"
+                />
               }
             </li>
           }
         </ol>
       </mat-card-content>
+
       <mat-card-actions>
         <a mat-button routerLink="/">К списку</a>
-        <a mat-raised-button color="primary" [routerLink]="['/edit', c.id]">Редактировать</a>
+        <a mat-raised-button color="primary" [routerLink]="['/edit', c.id]">
+          Редактировать
+        </a>
       </mat-card-actions>
+
     </mat-card>
   </div>
 }
