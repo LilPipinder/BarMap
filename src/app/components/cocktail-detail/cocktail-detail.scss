@@ -16,7 +16,9 @@
   object-fit: cover;
   border-radius: 16px 16px 0 0;
   display: block;
+  object-fit: contain;   
 }
+
 
 .desc {
   font-size: 1.05rem;
@@ -79,6 +81,7 @@ h3 {
   line-height: 1.6;
   color: #e9d5ff;
 }
+
 
 .step-img {
   max-width: 100%;
