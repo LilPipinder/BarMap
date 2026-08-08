@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal, ChangeDetectorRef } from '@angular/core';
 import { FormBuilder, FormArray, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -29,6 +29,7 @@ import { Cocktail, CocktailStep } from '../../models/cocktail.model';
   styleUrl: './cocktail-form.scss'
 })
 export class CocktailForm implements OnInit {
+  private readonly cdr = inject(ChangeDetectorRef);
   private readonly fb = inject(FormBuilder);
   private readonly service = inject(CocktailService);
   private readonly route = inject(ActivatedRoute);
@@ -99,6 +100,7 @@ export class CocktailForm implements OnInit {
     if (input.files && input.files[0]) {
       this.readAsBase64(input.files[0]).then(base64 => {
         this.steps.at(index).patchValue({ image: base64 });
+        this.cdr.markForCheck();
       });
     }
   }
@@ -108,6 +110,7 @@ export class CocktailForm implements OnInit {
     if (input.files && input.files[0]) {
       this.readAsBase64(input.files[0]).then(base64 => {
         this.form.patchValue({ finalImage: base64 });
+        this.cdr.markForCheck();
       });
     }
   }
