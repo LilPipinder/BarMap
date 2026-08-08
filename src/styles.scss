@@ -51,9 +51,11 @@ html, body {
 
 .mat-mdc-toolbar {
   background: linear-gradient(135deg, #1e1533 0%, #2a1f45 100%) !important;
+  color: var(--bar-text) !important;
   border-bottom: 1px solid var(--bar-border);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
 }
+
 
 .mat-mdc-form-field ::placeholder{
     color: lightgray !important;
@@ -104,6 +106,12 @@ html, body {
 
 a {
   color: var(--bar-accent);
+}
+.mat-mdc-icon-button {
+  color: white !important;
+}
+
+
 .toolbar {
   position: sticky;
   top: 0;
