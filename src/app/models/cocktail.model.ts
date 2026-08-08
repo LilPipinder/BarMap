@@ -1,3 +1,8 @@
+export interface CocktailStep {
+  text: string;
+  image?: string; 
+}
+
 export interface Cocktail {
   id: string;
   name: string;
