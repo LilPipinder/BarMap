@@ -1,25 +1,7 @@
-.toolbar {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  backdrop-filter: blur(12px);
-
-  span {
-    font-weight: 500;
-    letter-spacing: 0.01em;
-  }
-}
-
 .container {
   max-width: 720px;
   margin: 32px auto;
   padding: 0 20px;
-  animation: fadeUp 0.45s ease-out;
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(14px); }
-  to   { opacity: 1; transform: translateY(0); }
 }
 
 .full {
@@ -29,111 +11,75 @@
 }
 
 .step-block {
-  border: 1px solid rgba(192, 132, 252, 0.2);
-  border-radius: 14px;
-  padding: 18px;
-  margin-bottom: 18px;
-  background: linear-gradient(145deg, rgba(36, 30, 54, 0.9), rgba(26, 21, 40, 0.95));
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
-
-  &:hover {
-    border-color: rgba(192, 132, 252, 0.45);
-    box-shadow: 0 0 24px rgba(192, 132, 252, 0.12);
-  }
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  background: #1e1830;
 }
 
 .step-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+  color: white;
   font-weight: 500;
-  color: #e9d5ff;
-  font-size: 0.95rem;
-
-  span::before {
-    content: '✦ ';
-    color: #c084fc;
-  }
 }
 
 .image-row {
   display: flex;
   align-items: center;
-  gap: 14px;
-  margin-top: 10px;
+  gap: 12px;
+  margin-top: 8px;
   flex-wrap: wrap;
 }
 
 .preview {
-  max-width: 130px;
-  max-height: 130px;
-  border-radius: 12px;
+  max-width: 120px;
+  max-height: 120px;
+  border-radius: 8px;
   object-fit: cover;
-  border: 2px solid rgba(192, 132, 252, 0.35);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
 
-  &.large {
-    max-width: 220px;
-    max-height: 220px;
-  }
+.preview.large {
+  max-width: 200px;
+  max-height: 200px;
 }
 
 .file-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 18px;
-  border: 1.5px dashed rgba(192, 132, 252, 0.45);
-  border-radius: 10px;
+  gap: 6px;
+  padding: 8px 14px;
+  border: 1px dashed rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
   cursor: pointer;
-  color: #c4b5fd;
-  background: rgba(192, 132, 252, 0.06);
-  transition: all 0.2s ease;
-  font-size: 0.9rem;
+  color: white;
+  background: transparent;
+}
 
-  &:hover {
-    background: rgba(192, 132, 252, 0.14);
-    border-color: #c084fc;
-    color: #e9d5ff;
-  }
-
-  mat-icon {
-    font-size: 20px;
-    width: 20px;
-    height: 20px;
-  }
+.file-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .add-step {
-  margin-bottom: 28px;
-  border-color: rgba(192, 132, 252, 0.4) !important;
-  color: #c084fc !important;
+  margin-bottom: 24px;
+  color: white !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
 }
 
 .actions {
   display: flex;
   justify-content: flex-end;
   gap: 12px;
-  margin-top: 28px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 h3 {
-  margin: 28px 0 14px;
+  margin: 24px 0 12px;
+  color: white;
   font-weight: 500;
-  color: #e9d5ff;
-  font-size: 1.1rem;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-
-  &::before {
-    content: '';
-    width: 4px;
-    height: 18px;
-    background: linear-gradient(180deg, #a855f7, #ec4899);
-    border-radius: 2px;
-  }
 }
