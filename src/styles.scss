@@ -4,21 +4,105 @@ html {
   @include mat.theme((
     color: (
       theme-type: light,
-      primary: mat.$azure-palette,
-      tertiary: mat.$blue-palette,
+      primary: mat.$violet-palette,
+      tertiary: mat.$rose-palette,
     ),
     typography: Roboto,
     density: 0,
   ));
 }
 
+:root {
+  --bar-bg: #0f0c1a;
+  --bar-surface: #1a1528;
+  --bar-card: #241e36;
+  --bar-border: rgba(255, 255, 255, 0.08);
+  --bar-accent: #c084fc;
+  --bar-accent-2: #f472b6;
+  --bar-text: #f3e8ff;
+  --bar-muted: #a78bfa;
+  --bar-glow: 0 0 40px rgba(192, 132, 252, 0.25);
+  --radius: 16px;
+  --radius-sm: 10px;
+}
+
 html, body {
   height: 100%;
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  background: #f5f5f5;
+  font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+  background: var(--bar-bg);
+  color: var(--bar-text);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 20% -10%, rgba(192, 132, 252, 0.18), transparent),
+    radial-gradient(ellipse 60% 40% at 90% 10%, rgba(244, 114, 182, 0.12), transparent),
+    radial-gradient(ellipse 50% 30% at 50% 100%, rgba(139, 92, 246, 0.1), transparent);
+  background-attachment: fixed;
 }
 
 * {
   box-sizing: border-box;
+}
+
+.mat-mdc-card {
+  background: var(--bar-card) !important;
+  color: var(--bar-text) !important;
+  border: 1px solid var(--bar-border) !important;
+  border-radius: var(--radius) !important;
+  box-shadow: var(--bar-glow) !important;
+}
+
+.mat-mdc-toolbar {
+  background: linear-gradient(135deg, #1e1533 0%, #2a1f45 100%) !important;
+  border-bottom: 1px solid var(--bar-border);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+.mat-mdc-form-field {
+  --mdc-outlined-text-field-outline-color: rgba(255, 255, 255, 0.15);
+  --mdc-outlined-text-field-hover-outline-color: var(--bar-accent);
+  --mdc-outlined-text-field-focus-outline-color: var(--bar-accent);
+  --mdc-outlined-text-field-label-text-color: var(--bar-muted);
+  --mdc-outlined-text-field-input-text-color: var(--bar-text);
+  --mdc-outlined-text-field-caret-color: var(--bar-accent);
+}
+
+.mat-mdc-table {
+  background: transparent !important;
+  color: var(--bar-text) !important;
+}
+
+.mat-mdc-header-row {
+  background: rgba(192, 132, 252, 0.08) !important;
+}
+
+.mat-mdc-row:hover {
+  background: rgba(192, 132, 252, 0.06) !important;
+}
+
+.mat-mdc-header-cell,
+.mat-mdc-cell {
+  color: var(--bar-text) !important;
+  border-bottom-color: var(--bar-border) !important;
+}
+
+.mat-mdc-button.mat-primary,
+.mat-mdc-raised-button.mat-primary {
+  background: linear-gradient(135deg, #a855f7, #ec4899) !important;
+  color: white !important;
+  box-shadow: 0 4px 16px rgba(168, 85, 247, 0.4) !important;
+}
+
+.mat-mdc-button.mat-primary:hover,
+.mat-mdc-raised-button.mat-primary:hover {
+  box-shadow: 0 6px 24px rgba(168, 85, 247, 0.55) !important;
+  transform: translateY(-1px);
+}
+
+.mat-mdc-outlined-button {
+  border-color: rgba(192, 132, 252, 0.4) !important;
+  color: var(--bar-accent) !important;
+}
+
+a {
+  color: var(--bar-accent);
 }
