@@ -1,4 +1,4 @@
-<mat-toolbar color="primary" class="toolbar">
+<mat-toolbar class="toolbar">
   <span>Барная карта</span>
   <span class="spacer"></span>
   <a mat-raised-button color="accent" routerLink="/create">
@@ -50,7 +50,7 @@
               <a mat-icon-button [routerLink]="['/edit', c.id]" matTooltip="Редактировать">
                 <mat-icon>edit</mat-icon>
               </a>
-              <button mat-icon-button color="warn" (click)="deleteCocktail(c.id, $event)" matTooltip="Удалить">
+              <button mat-icon-button (click)="deleteCocktail(c.id, $event)" matTooltip="Удалить">
                 <mat-icon>delete</mat-icon>
               </button>
             </td>
