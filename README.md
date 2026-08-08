@@ -1,4 +1,6 @@
-# Барная карта (Bar Map)
+# Барная карта (Bar Map)🍸
+<img width="1847" height="505" alt="image" src="https://github.com/user-attachments/assets/5b602f78-4acb-40c7-a308-f81d8f8fc693" />
+
 
 Angular 21 приложение для управления рецептами коктейлей с полным CRUD.
 
