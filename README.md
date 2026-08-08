@@ -27,7 +27,7 @@ npm start
 ## Структура
 
 - `src/app/models` — модели
-- `src/app/services` — CocktailService
+- `src/app/services` — используемые методы
 - `src/app/components/cocktail-list` — таблица
 - `src/app/components/cocktail-form` — форма create/edit
 - `src/app/components/cocktail-detail` — просмотр
